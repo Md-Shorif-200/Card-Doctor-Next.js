@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.primary_color {
+    @apply text-[#FF3811]
+}
+
+.primary_btn {
+     @apply  btn bg-[#FF3811] text-white capitalize border-none 
+} 
+
