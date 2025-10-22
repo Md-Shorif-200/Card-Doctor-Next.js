@@ -4,8 +4,8 @@ import Link from "next/link";
 const logo = "/assets/logo.svg";
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5";
 
-
 export default function Navbar() {
+  const user = false;
   const navlinks = (
     <>
       <li className="capitalize text-[18px] text-[rgba(68, 68, 68, 1))] font-normal ">
@@ -73,17 +73,31 @@ export default function Navbar() {
             <ul className="menu menu-horizontal px-1">{navlinks}</ul>
           </div>
           <div className="navbar-end flex justify-center items-center gap-6">
-
-                   <Link className="hidden sm:block" href={'/'}>
-                      <IoBagOutline className="text-xl"></IoBagOutline>
-                     </Link>
-                   <Link className="hidden sm:block" href={'/'}>
-                      <IoSearchOutline className="text-xl"></IoSearchOutline>
-                     </Link>
-
-            <Link href={'/'} className="btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all ">
-              appointment
+            <Link className="hidden sm:block" href={"/"}>
+              <IoBagOutline className="text-xl"></IoBagOutline>
             </Link>
+            <Link className="hidden sm:block" href={"/"}>
+              <IoSearchOutline className="text-xl"></IoSearchOutline>
+            </Link>
+
+            <div>
+              {user ? (
+                <>
+                  <Link
+                    href={"/"}
+                    className="btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all "
+                  >
+                    appointment
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href={"/sign-up"} className="primary_btn">
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </Container>
