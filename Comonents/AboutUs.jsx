@@ -7,9 +7,9 @@ const img_2 = "/assets/images/about_us/parts.jpg";
 
 export default function AboutUs() {
   return (
-    <div className="w-full lg:h-[700px] mt-10 lg:mt-20 ">
+    <div className="w-full h-full lg:h-[600px]  flex justify-center items-center pt-10 lg:pt-0  pb-14 lg:pb-0  ">
       <Container>
-        <div className=" w-full h-[600px] grid grid-cols-1 sm:grid-cols-2 gap-8 ">
+        <div className=" w-full h-full lg:h-[450px] grid grid-cols-1 sm:grid-cols-2 gap-8 ">
           <div className="about_img md:relative h-full">
             <div className="md:absolute md:top-0  md:left-0">
               <div className="relative w-full md:w-[350px] lg:w-[400px]   h-[370px] ">

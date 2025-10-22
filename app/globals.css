@@ -10,3 +10,10 @@
      @apply  btn bg-[#FF3811] text-white capitalize border-none 
 } 
 
+
+.service_card{
+    box-sizing: border-box;
+border: 1px solid rgba(232, 232, 232, 1);
+border-radius: 10px;
+background: rgba(255, 255, 255, 1);
+}
