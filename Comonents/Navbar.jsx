@@ -1,11 +1,17 @@
+"use client"
 import Image from "next/image";
 import Container from "./Container";
 import Link from "next/link";
 const logo = "/assets/logo.svg";
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
-  const user = false;
+   const session = useSession();
+   const {data,status} = session;
+    
+  console.log(session);
+  
   const navlinks = (
     <>
       <li className="capitalize text-[18px] text-[rgba(68, 68, 68, 1))] font-normal ">
@@ -81,14 +87,14 @@ export default function Navbar() {
             </Link>
 
             <div>
-              {user ? (
+              {status == "authenticated" ? (
                 <>
-                  <Link
-                    href={"/"}
+                  <div
+                    onClick={() => signOut()}
                     className="btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all "
                   >
-                    appointment
-                  </Link>
+                    Sign Out
+                  </div>
                 </>
               ) : (
                 <>
