@@ -5,10 +5,12 @@ import Link from "next/link";
 const logo = "/assets/logo.svg";
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
    const session = useSession();
    const {data,status} = session;
+   const router = useRouter()
     
   console.log(session);
   
@@ -36,6 +38,11 @@ export default function Navbar() {
       </li>
     </>
   );
+
+  const handleSignOut = async () => {
+      await signOut({ redirect: false });
+  router.push("/");
+  }
 
   return (
     <>
@@ -90,7 +97,7 @@ export default function Navbar() {
               {status == "authenticated" ? (
                 <>
                   <div
-                    onClick={() => signOut()}
+                    onClick={handleSignOut}
                     className="btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all "
                   >
                     Sign Out

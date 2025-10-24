@@ -1,11 +1,12 @@
 const logo = "/assets/service_logo.png";
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 
 
-const CarDoctorCard = ({price}) => {
+const CarDoctorCard = ({price,serviceId}) => {
   return (
     <div className="">
       <div className="bg-black text-white p-6 rounded-t-xl text-center shadow-2xl">
@@ -38,9 +39,13 @@ const CarDoctorCard = ({price}) => {
           Price <span className="text-gray-900">${price} </span>
         </p>
 
-        <button className="w-full py-3 bg-red-600 text-white font-bold text-lg rounded-md transition duration-150 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+         <Link  href={`/checkout-form/${serviceId}`}>
+        <button  className="w-full  py-3 bg-red-600 text-white font-bold text-lg rounded-md transition duration-150 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
           Proceed Checkout
         </button>
+         </Link>
+
+
       </div>
     </div>
   );

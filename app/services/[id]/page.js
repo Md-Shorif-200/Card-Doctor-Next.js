@@ -2,8 +2,6 @@ import CarDoctorCard from "@/Pages/Service/ServiceDetails/CarDoctorCard";
 import CommonBanner from "@/Comonents/CommonBanner";
 import Container from "@/Comonents/Container";
 
-import { dbCollection, dbConnect } from "@/lib/mongodb";
-import { ObjectId } from "mongodb";
 import Image from "next/image";
 import { BsPlayCircle } from "react-icons/bs";
 
@@ -15,13 +13,17 @@ import Service_facility from "@/Pages/Service/ServiceDetails/Service_facility";
 const service_Banner_img = "/assets/images/banner/4.jpg";
 const service_Process_img = "/assets/images/banner/2.jpg";
 
-export default async function serviceDetails({ params }) {
-  const serviceId = await params.id;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-  const serviceDetailsData = await dbConnect(dbCollection.Services).findOne({
-    _id: new ObjectId(serviceId),
-  });
-  console.log(serviceDetailsData);
+
+export default async function serviceDetails({ params }) {
+  console.log(params);
+  
+   const serviceId = await params.id;
+   const res = await fetch(`${baseUrl}/api/services/${serviceId}`);
+   const serviceDetailsData = await res.json();
+
+
 
   const { service_id, title, img, price, description, facility } =
     serviceDetailsData;
@@ -86,7 +88,7 @@ export default async function serviceDetails({ params }) {
             <div className="my-6">
               <DownloadSection></DownloadSection>
             </div>
-            <CarDoctorCard price={price}></CarDoctorCard>
+            <CarDoctorCard serviceId={serviceId} price={price}></CarDoctorCard>
           </section>
         </main>
       </Container>
