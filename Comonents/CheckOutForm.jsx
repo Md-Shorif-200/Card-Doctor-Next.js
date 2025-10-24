@@ -108,24 +108,3 @@ export default function CheckOutForm({ serviceData }) {
   );
 }
 
-// "use client"
-// import { useState } from "react"
-
-// export default function CheckoutPage() {
-//   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" })
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value })
-//   }
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     console.log(formData)
-//   }
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-
-//     </div>
-//   )
-// }

@@ -18,7 +18,7 @@ export default function DeleteBookings({ id }) {
     <div>
       <button
         onClick={() => handleDelete(id)}
-        className="text-red-600 hover:text-[#FF3811] transition"
+        className="text-red-600 hover:text-[#FF3811] transition "
         title="Delete"
       >
         <FaTrashAlt size={18} />
