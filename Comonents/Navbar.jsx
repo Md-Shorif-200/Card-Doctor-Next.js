@@ -30,7 +30,7 @@ export default function Navbar() {
       </li>
       <li className="capitalize text-[18px] text-[rgba(68, 68, 68, 1))] font-normal ">
         {" "}
-        <Link href="/"> blog</Link>{" "}
+        <Link href="/my-bookings"> My Bookings</Link>{" "}
       </li>
       <li className="capitalize text-[18px] text-[rgba(68, 68, 68, 1))] font-normal ">
         {" "}
