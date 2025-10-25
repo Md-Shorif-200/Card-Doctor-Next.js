@@ -1,14 +1,14 @@
-import CarDoctorCard from "@/Pages/Service/ServiceDetails/CarDoctorCard";
+import CarDoctorCard from "@/Comonents/Service/ServiceDetails/CarDoctorCard";
 import CommonBanner from "@/Comonents/CommonBanner";
 import Container from "@/Comonents/Container";
 
 import Image from "next/image";
 import { BsPlayCircle } from "react-icons/bs";
 
-import DownloadSection from "@/Pages/Service/ServiceDetails/DownloadSection";
-import Service_Procoss_step from "@/Pages/Service/ServiceDetails/Service_Procoss_step";
-import Service_tabs from "@/Pages/Service/ServiceDetails/Service_tabs";
-import Service_facility from "@/Pages/Service/ServiceDetails/Service_facility";
+import DownloadSection from "@/Comonents/Service/ServiceDetails/DownloadSection";
+import Service_Procoss_step from "@/Comonents/Service/ServiceDetails/Service_Procoss_step";
+import Service_tabs from "@/Comonents/Service/ServiceDetails/Service_tabs";
+import Service_facility from "@/Comonents/Service/ServiceDetails/Service_facility";
 
 const service_Banner_img = "/assets/images/banner/4.jpg";
 const service_Process_img = "/assets/images/banner/2.jpg";

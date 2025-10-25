@@ -1,4 +1,4 @@
-import SignIn from '@/Pages/Auth/SignIn'
+import SignIn from '@/Comonents/SignIn'
 import React from 'react'
 
 export default function page() {

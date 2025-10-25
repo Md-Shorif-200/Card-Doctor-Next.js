@@ -1,7 +1,8 @@
 import Image from "next/image";
 import CommonBanner from "@/Comonents/CommonBanner";
-import DeleteBookings from "../Bookings/DeleteBookings";
 import EditBookinsButton from "../Bookings/EditBookinsButton";
+import DeleteBookings from "../Bookings/DeleteBookings";
+
 const bookingImg = "/assets/images/checkout/checkout.png";
 
 export default function MyBookings({ data }) {

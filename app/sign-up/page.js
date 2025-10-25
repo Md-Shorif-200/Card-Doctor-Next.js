@@ -1,5 +1,6 @@
-import SignUp from '@/Pages/Auth/SignUp'
-import React from 'react'
+
+import SignUp from '@/Comonents/SignUp'
+
 
 export default function page() {
   return (

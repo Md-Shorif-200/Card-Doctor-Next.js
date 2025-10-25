@@ -10,6 +10,10 @@
      @apply  btn bg-[#FF3811] text-white capitalize border-none 
 } 
 
+.secondary_btn {
+    @apply btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all 
+}
+
 
 .service_card{
     box-sizing: border-box;

@@ -98,7 +98,7 @@ export default function Navbar() {
                 <>
                   <div
                     onClick={handleSignOut}
-                    className="btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all "
+                    className="secondary_btn"
                   >
                     Sign Out
                   </div>
