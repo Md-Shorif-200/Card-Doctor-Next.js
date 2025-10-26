@@ -1,7 +1,13 @@
-import React from 'react'
 
-export default function page() {
+const fetchServiceData = async () => {
+  
+}
+
+
+export default function ServicesPage() {
   return (
-    <div>page</div>
+    <div>
+ 
+    </div>
   )
 }

@@ -24,13 +24,11 @@ export default function CheckOutForm({ serviceData }) {
       <div className="bg-[#F3F3F3] py-20">
         <div className="w-full max-w-3xl mx-auto  rounded-2xl  p-8 md:p-12">
           <form action={checkOutFormAction} className="space-y-6">
-
-                <input type="hidden" name="service_id" value={service_id} />
+            <input type="hidden" name="service_id" value={service_id} />
             <input type="hidden" name="title" value={title} />
             <input type="hidden" name="price" value={price} />
             <input type="hidden" name="img" value={img} />
 
-            
             <div>
               <input
                 type="text"
@@ -107,4 +105,3 @@ export default function CheckOutForm({ serviceData }) {
     </div>
   );
 }
-

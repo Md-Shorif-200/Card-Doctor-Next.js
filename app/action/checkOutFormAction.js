@@ -25,8 +25,6 @@ export default async function checkOutFormAction(formData) {
     message,
   };
 
-
-
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -46,7 +44,11 @@ export default async function checkOutFormAction(formData) {
     const result = await res.json();
     console.log("✅ Data successfully posted:", result);
 
-    return { success: true, message: "Checkout data posted successfully", result };
+    return {
+      success: true,
+      message: "Checkout data posted successfully",
+      result,
+    };
   } catch (error) {
     console.error("❌ Error posting data:", error);
     return { success: false, message: "Failed to post checkout data" };

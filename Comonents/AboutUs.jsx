@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./Container";
 import Image from "next/image";
+import Link from "next/link";
 
 const img_1 = "/assets/images/about_us/person.jpg";
 const img_2 = "/assets/images/about_us/parts.jpg";
@@ -56,7 +57,9 @@ export default function AboutUs() {
               believable.
             </p>
 
-            <button className="primary_btn">get more info</button>
+            <Link href="/about-us">
+              <button className="primary_btn">get more info</button>
+            </Link>
           </div>
         </div>
       </Container>

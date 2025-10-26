@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { MainLayout } from "@/Comonents/MainLayout"
 import NextAuthProvider from "@/Provider/NextAuthProvider"
+import AppToaster from "@/components/ui/Toaster"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +27,7 @@ export default function RootLayout({ children }) {
           <NextAuthProvider>
 
         <MainLayout>{children}</MainLayout>
+         <AppToaster></AppToaster>
           </NextAuthProvider>
       </body>
     </html>
