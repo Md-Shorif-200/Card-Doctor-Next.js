@@ -13,7 +13,7 @@ export default function ServiceCard({service}) {
               {/* --- Image Section with Hover Zoom --- */}
               <div className="relative w-full h-60 bg-gray-100 overflow-hidden">
                 <Image
-                  src={service?.img}
+                  src={service?.service_image}
                   alt={service?.title}
                   fill
                   className="object-cover rounded-t-xl transform transition-transform duration-500 group-hover:scale-110"

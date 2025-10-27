@@ -27,7 +27,7 @@ export default async function FeaturedServices() {
 
         {/* --- Services Grid --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {servicesData?.map((service) => (
+          {servicesData?.slice(0,6).map((service) => (
                <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
         </div>

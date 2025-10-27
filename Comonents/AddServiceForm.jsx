@@ -3,6 +3,10 @@ import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
 import Container from "./Container";
 import FacilitySection from "./Service/FacilitySection";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { ImSpinner9 } from "react-icons/im";
+
 // carDoctor_preset
 const inputStyle =
   "w-full bg-white text-black border border-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF3811]";
@@ -16,7 +20,8 @@ const serviceOptions = [
 ];
 
 export default function AddServiceForm() {
-  const { data } = useSession();
+  const { data: session } = useSession();
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -29,8 +34,77 @@ export default function AddServiceForm() {
     },
   });
 
-  const onSubmit = async (formData) => {
-    console.log("✅ Final Form Data:", formData);
+  const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const uploadImageToCloudinary = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", UPLOAD_PRESET);
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      const img_secure_url = data.secure_url;
+
+    if (!res.ok) throw new Error("Image Upload failed");
+
+      return img_secure_url;
+    } catch (error) {
+      console.log(error);
+      toast.error("Somethings was wrong!");
+      return null;
+    }
+  };
+
+  const onSubmit = async (data) => {
+    try {
+      const file = data.service_image[0];
+      const imgUrl = await uploadImageToCloudinary(file);
+
+      if (!imgUrl) {
+        toast.error("Image upload failed!");
+        return;
+      }
+
+      const serviceData = {
+        email: session.user.email,
+        title: data.service_title,
+        price: data.price,
+        service_image: imgUrl,
+        description: data.description,
+        facility: data.facility,
+      };
+
+      const response = await fetch(`${baseUrl}/api/add-service`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(serviceData),
+      });
+      const result = await response.json();
+       console.log(result);
+         if(result.acknowledged == true && result.insertedId){
+            toast.success('Sucessfully add service!')
+            router.push('/');
+            reset()
+         }
+       
+    } catch (error) {
+      console.log(error);
+    }finally{
+      reset();
+    }
   };
 
   return (
@@ -126,7 +200,7 @@ export default function AddServiceForm() {
             <div className="flex justify-end gap-4">
               <button
                 type="reset"
-                className="bg-gray-500 rounded-xs text-white px-4"
+                className="bg-gray-300 rounded-md  px-4"
               >
                 Cancel
               </button>
@@ -134,9 +208,11 @@ export default function AddServiceForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="primary_btn"
+                className="primary_btn flex items-center gap-1"
               >
-                {isSubmitting ? "Submitting..." : "Add Service"}
+                {isSubmitting ? <>
+                  <ImSpinner9 className="animate-spin text-lg"/> Processing...
+                </> : "Add Service"}
               </button>
             </div>
           </form>
