@@ -1,5 +1,5 @@
 
-import Home from "@/Comonents/Home";
+import Home from "@/Comonents/User/Home/Home";
 
 
 export default function page() {

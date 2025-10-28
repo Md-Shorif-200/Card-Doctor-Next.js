@@ -16,22 +16,20 @@ import {
 } from "@/components/ui/popover"
 import Container from "@/Comonents/Container"
 import Link from "next/link"
-import useAuth from "@/Comonents/CustomHooks/useAuth"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/add-service", label: "Add Service" },
+  // { href: "/add-service", label: "Add Service" },
 
 ]
 
 const navLogo = '/assets/logo.svg'
 
 export default function Component() {
-   const session = useAuth();
-    console.log("navbar",session);
+
 
     
   return (
@@ -77,7 +75,7 @@ export default function Component() {
             <NotificationMenu />
           </div>
           {/* User menu */}
-          <UserMenu session={session} />
+          <UserMenu />
         </div>
      {/* Mobile menu trigger */}
           <Popover>

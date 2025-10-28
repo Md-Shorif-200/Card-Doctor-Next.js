@@ -3,6 +3,8 @@ import {
   UserCircle2Icon,
   LogOutIcon,
 } from "lucide-react";
+import { MdMiscellaneousServices,MdDesignServices } from "react-icons/md";
+
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -16,12 +18,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { FaUser } from "react-icons/fa";
 
-export default function UserMenu({ session }) {
+export default function UserMenu() {
+     const session = useSession();
   const { data, status } = session;
   const router = useRouter();
 
@@ -86,6 +89,27 @@ export default function UserMenu({ session }) {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
+          
+
+
+          {/*  Add Service Link */}
+          <DropdownMenuItem asChild>
+            <Link href="/add-service" className="flex items-center gap-2 w-full">
+              <MdMiscellaneousServices size={16} className="opacity-70" />
+              <span>Add Service</span>
+            </Link>
+          </DropdownMenuItem>
+
+                  {/*  All Service Link */}
+          <DropdownMenuItem asChild>
+            <Link href="/all-service" className="flex items-center gap-2 w-full">
+              <MdDesignServices size={16} className="opacity-70" />
+              <span>All Services</span>
+            </Link>
+          </DropdownMenuItem>
+
+
+
           {/*  My Bookings Link */}
           <DropdownMenuItem asChild>
             <Link href="/my-bookings" className="flex items-center gap-2 w-full">
