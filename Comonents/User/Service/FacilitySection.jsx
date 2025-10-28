@@ -19,7 +19,7 @@ export default function FacilitySection({
   const selectedValues = fields.map((f) => f.name);
 
   const getAvailableOptions = (index) =>
-    serviceOptions.filter(
+    serviceOptions?.filter(
       (option) =>
         !selectedValues.includes(option.value) ||
         fields[index].name === option.value
@@ -44,7 +44,7 @@ export default function FacilitySection({
                 options={getAvailableOptions(index)}
                 placeholder="Select Service"
                 value={
-                  serviceOptions.find((opt) => opt.value === value) || null
+                  serviceOptions?.find((opt) => opt.value === value) || null
                 }
                 onChange={(selected) => {
                   onChange(selected?.value || "");
@@ -98,9 +98,9 @@ export default function FacilitySection({
           <button
         type="button"
         onClick={() => append({ name: "", details: "" })}
-        disabled={selectedValues.length >= serviceOptions.length}
+        disabled={selectedValues?.length >= serviceOptions?.length}
         className={`bg-[#FF3811] w-[50px] text-3xl text-white rounded-md transition ${
-          selectedValues.length >= serviceOptions.length
+          selectedValues?.length >= serviceOptions?.length
             ? "opacity-50 cursor-not-allowed"
             : "hover:bg-[#e3330f]"
         }`}

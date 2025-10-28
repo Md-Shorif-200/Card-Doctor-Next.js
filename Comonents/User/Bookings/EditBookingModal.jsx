@@ -14,24 +14,20 @@ export default function EditBookingModal({ booking, closeModal }) {
     message: booking.message || "",
   });
 
-  const [state, formAction, isPending] = useActionState(EditBookingActtion, null);
+  const [state, formAction, isPending] = useActionState(
+    EditBookingActtion,
+    null
+  );
 
-   console.log(state);
-   
+  console.log(state);
 
-useEffect(() => {
-  if (state?.success) {
-    closeModal();
-  }
-}, [state, closeModal]);
+  useEffect(() => {
+    if (state?.success) {
+      closeModal();
+    }
+  }, [state, closeModal]);
 
-
-   
-
-
-
-
-    // Handle input changes
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -57,7 +53,7 @@ useEffect(() => {
 
           {/* Form */}
           <form action={formAction} className="space-y-6">
-                           <input type="hidden" name="booking_id" value={booking._id} />
+            <input type="hidden" name="booking_id" value={booking._id} />
             <div>
               <input
                 type="text"

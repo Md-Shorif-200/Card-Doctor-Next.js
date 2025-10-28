@@ -23,7 +23,7 @@ export default async function EditBookingActtion(prevState,formData) {
 
     const result = await res.json();
     revalidatePath('/my-bookings')
-    console.log("✅ Data successfully posted:", result);
+    console.log(" Data successfully posted:", result);
 
     return {
       success: true,
@@ -31,7 +31,7 @@ export default async function EditBookingActtion(prevState,formData) {
       result,
     };
   } catch (error) {
-    console.error("❌ Error posting data:", error);
+    console.error(" Error posting data:", error);
     return { success: false, message: "Failed to update  data" };
   }
 }

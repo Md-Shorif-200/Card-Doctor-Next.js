@@ -67,6 +67,8 @@ export default function AddServiceForm() {
   };
 
   const onSubmit = async (data) => {
+     console.log(data);
+     
     try {
       const file = data.service_image[0];
       const imgUrl = await uploadImageToCloudinary(file);
@@ -77,12 +79,12 @@ export default function AddServiceForm() {
       }
 
       const serviceData = {
-        email: session.user.email,
-        title: data.service_title,
-        price: data.price,
+        email: session?.user?.email,
+        title: data?.service_title,
+        price: data?.price,
         service_image: imgUrl,
-        description: data.description,
-        facility: data.facility,
+        description: data?.description,
+        facility: data?.facility,
       };
 
       const response = await fetch(`${baseUrl}/api/services`, {
