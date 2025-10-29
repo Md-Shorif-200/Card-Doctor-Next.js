@@ -28,6 +28,7 @@ export default function All_Service_Action({ service }) {
         try {
           const res = await deleteServiceData(id);
           if (res?.acknowledged && res?.deletedCount > 0) {
+       
             return true;
           } else {
             throw new Error("Delete failed");

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Sign_In_Form from "./Sign_In_Form";
+const img = '/assets/images/login/Sign_in_Bg_Img-min.png'
 
 
 export default function SignIn() {
@@ -7,18 +9,9 @@ export default function SignIn() {
       <Sign_In_Form></Sign_In_Form>
 
       <div className="hidden lg:block min-h-screen">
-        <div className="bg-[#FF3811] h-full text-white flex flex-col justify-center items-center text-center p-10 ">
-          <h2 className="text-4xl font-bold mb-4">Start your journey</h2>
-          <p className="max-w-md text-gray-100 mb-6">
-            Join thousands of users who are already managing their projects
-            efficiently with our platform.
-          </p>
-          {/* <ul className="space-y-3 text-left">
-          <li>✓ Secure & Fast Authentication</li>
-          <li>✓ 24/7 Customer Support</li>
-          <li>✓ Advanced Security Features</li>
-        </ul> */}
-        </div>
+            <div className="relative w-ful h-full">
+               <Image src={img} alt="sign in Image" fill ></Image>
+            </div>
       </div>
     </div>
   );

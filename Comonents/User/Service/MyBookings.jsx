@@ -6,6 +6,8 @@ import DeleteBookings from "../Bookings/DeleteBookings";
 const bookingImg = "/assets/images/checkout/checkout.png";
 
 export default function MyBookings({ data }) {
+     console.log(data);
+     
   return (
     <main>
       <CommonBanner
@@ -43,7 +45,7 @@ export default function MyBookings({ data }) {
                         <div className="avatar">
                           <div className="w-16 h-16 rounded-md overflow-hidden border border-gray-200">
                             <Image
-                              src={item.serviceImg}
+                              src={item.service_image}
                               alt={item.title}
                               width={64}
                               height={64}
@@ -58,7 +60,7 @@ export default function MyBookings({ data }) {
                       <td className="text-gray-700">${item.price}</td>
                       <td className="text-gray-700">{item.customerPhone}</td>
                       <td className="text-gray-700">{item.customerAddress}</td>
-                      <td className="flex items-center gap-3  mt-6">
+                      <td className="flex items-center gap-3  ">
                         <EditBookinsButton item={item}></EditBookinsButton>
 
                         <DeleteBookings id={item._id}></DeleteBookings>

@@ -1,30 +1,50 @@
 "use server";
+
 import bcrypt from "bcrypt";
 import { dbCollection, dbConnect } from "@/lib/mongodb";
 
-const signUpAction = async (formData) => {
-  const { name, email, password } = Object.fromEntries(formData.entries());
 
-  if ((!email, !password)) return null;
+const signUpAction = async (prevState, formData) => {
+  try {
+    const { name, email, password } = Object.fromEntries(formData.entries());
 
-  const UserCollection = dbConnect(dbCollection.UserCollection);
-  const user = await UserCollection.findOne({ email });
+    if (!name || !email || !password) {
+      return { error: "All fields are required." };
+    }
 
-  if (!user) {
+    const UserCollection = dbConnect(dbCollection.UserCollection);
+
+    const existingUser = await UserCollection.findOne({ email });
+    if (existingUser) {
+      return { error: "User already exists. Please log in instead." };
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
+
     const result = await UserCollection.insertOne({
       name,
       email,
       password: hashedPassword,
     });
-    //   console.log(result);
-    result.insertedId = result.insertedId.toString()
+
+    if (!result?.insertedId) {
+      return { error: "Something went wrong. Please try again." };
+    }
+
+    return {result,email,password};
+
+  } catch (error) {
+    console.error(" SignUp Error:", error);
 
 
-    return result
+    if (error.message?.includes("ECONNREFUSED")) {
+      return { error: "Database connection failed. Please try again later." };
+    }
+
+    return {
+      error: error.message || "Unexpected error occurred during sign up.",
+    };
   }
-
-  return null;
 };
 
 export default signUpAction;

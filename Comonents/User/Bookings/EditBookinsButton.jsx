@@ -14,10 +14,10 @@ export default function EditBookinsButton({ item }) {
     <>
       <button
         onClick={openModal}
-        className="text-blue-600 hover:text-blue-800 transition"
+        className="text-blue-600 hover:text-blue-800 transition mt-5"
         title="Update"
       >
-        <FaEdit size={18} />
+        <FaEdit size={19} />
       </button>
 
       {/* Modal */}

@@ -1,12 +1,46 @@
 "use client";
 import signUpAction from "@/app/action/auth/signUpAction";
-import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect, useState } from "react";
+import { ImSpinner9 } from "react-icons/im";
+import { toast } from "sonner";
 export default function Sign_Up_Form() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+  const [state, formAction, isPending] = useActionState(signUpAction, null);
+    const [loadingToastId, setLoadingToastId] = useState(null);
+
+  console.log(state);
+
+    useEffect(() => {
+    const autoLogin = async () => {
+      if (state?.result?.acknowledged && state?.result?.insertedId) {
+     const id = toast.loading("Creating account & logging in...");
+        setLoadingToastId(id);
+
+        const res = await signIn("credentials", {
+          redirect: false,
+          email: state.email, 
+          password: state.password,
+        });
+
+        if (res?.ok) {
+            toast.success("Logged in successfully!", { id });
+          router.push("/");
+        } else {
+          toast.error("Auto login failed. Please login manually.");
+        }
+      }
+    };
+
+    autoLogin();
+  }, [state, router]);
+
 
   return (
     <div>
-      <form action={signUpAction} className="space-y-5">
+      <form action={formAction} className="space-y-5">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Name
@@ -52,9 +86,17 @@ export default function Sign_Up_Form() {
 
         <button
           type="submit"
-          className="w-full bg-[#FF3811] hover:bg-[#e3330f] text-white font-semibold py-2 rounded-lg transition"
+          disabled={isPending}
+          className="w-full flex justify-center items-center gap-4 bg-[#FF3811] hover:bg-[#e3330f] text-white font-semibold py-2 rounded-lg transition"
         >
-          Sign Up
+          {isPending ? (
+            <>
+              {" "}
+              <ImSpinner9 className="text-lg animate-spin" /> Processing...{" "}
+            </>
+          ) : (
+            <> Sign Up </>
+          )}
         </button>
       </form>
     </div>

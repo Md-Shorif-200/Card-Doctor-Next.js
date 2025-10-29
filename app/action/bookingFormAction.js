@@ -1,11 +1,11 @@
 "use server";
 
-export default async function bookingFormAction(formData) {
+export default async function bookingFormAction(prevState,formData) {
   const {
     service_id,
     title,
     price,
-    img,
+    service_image,
     name,
     email,
     address,
@@ -17,7 +17,7 @@ export default async function bookingFormAction(formData) {
     service_id,
     title,
     price,
-    serviceImg: img,
+    service_image: service_image,
     customerName: name,
     customerEmail: email,
     customerAddress: address,
