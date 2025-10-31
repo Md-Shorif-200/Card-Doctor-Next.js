@@ -5,7 +5,7 @@ const bannerImage  = '/assets/images/banner/5.jpg'
 
 export default function Banner() {
   return (
-    <div className='w-full h-[80vh] bg-black/30  flex items-center' style={{backgroundImage : `url(${bannerImage})`,backgroundPosition : 'center',backgroundSize : 'cover',backgroundRepeat : 'no-repeat',backgroundBlendMode : 'multiply'}}>
+    <div className='w-full h-[85vh] bg-black/30  flex items-center' style={{backgroundImage : `url(${bannerImage})`,backgroundPosition : 'center',backgroundSize : 'cover',backgroundRepeat : 'no-repeat',backgroundBlendMode : 'multiply'}}>
 
          <Container>
               <div className="banner_cnt w-full md:w-1/2 ">
@@ -16,7 +16,7 @@ export default function Banner() {
                             <button className=' primary_btn '>
                                 discover more
                             </button>
-                              <button className='  btn border border-white text-white  bg-transparent capitalize'>
+                              <button className='  border border-[#FF3811] text-[#FF3811] rounded-md btn capitalize bg-transparent hover:bg-[#FF3811] hover:text-white transition-all  '>
                                 latest project
                             </button>
 

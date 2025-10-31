@@ -41,7 +41,7 @@ export default function Bookings_Form({ serviceData }) {
     <div>
       <CommonBanner
         Route="Home"
-        Title="checkout form"
+        Title="Booking form"
         Bg_img={checkoutOutImg}
       ></CommonBanner>
       <div className="bg-[#F3F3F3] py-20">

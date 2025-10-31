@@ -6,38 +6,6 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export default function DeleteBookings({ id }) {
   const router = useRouter();
 
-  // const handleDelete = () => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You will be Deleted This Data.",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, Delete",
-  //   }).then(async(result) => {
-  //     if (result.isConfirmed) {
-
-  //     const res = await fetch(`${baseUrl}/api/bookings/${id}`, {
-  //     method: "DELETE",
-  //   });
-
-  //     const data = await res.json();
-
-  //        if (data?.acknowledged && data?.deletedCount > 0) {
-  //     Swal.fire({
-  //         title: "Deleted !",
-  //         text: "Data deleted successfully!",
-  //         icon: "success",
-  //       });
-
-  //               router.refresh();
-  //        }
-
-  //     }
-  //   });
-  // };
-
   const handleDelete = async (id) => {
     Swal.fire({
       title: "Are you sure?",

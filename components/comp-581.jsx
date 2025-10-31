@@ -26,14 +26,14 @@ const navigationLinks = [
 
 ]
 
-const navLogo = '/assets/logo.svg'
+
 
 export default function Component() {
 
 
     
   return (
-    <header className="border-b py-6  ">
+    <header className="border-b py-4  ">
 
         <Container>
      <div className="flex  items-center justify-between gap-4">
@@ -43,7 +43,7 @@ export default function Component() {
           {/* Main nav */}
           <div className="flex items-center gap-6">
  
-              <Logo navLogo={navLogo} />
+              <Logo/>
     
 
      
@@ -57,9 +57,9 @@ export default function Component() {
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={index}>
                     <Link
-                      href={link.href}
+                      href={link?.href}
                       className="py-1.5 px-3 font-medium text-muted-foreground hover:text-primary text-md">
-                      {link.label}
+                      {link?.label}
                     </Link>
                   </NavigationMenuItem>
                 ))}
@@ -109,8 +109,8 @@ export default function Component() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
-                      <NavigationMenuLink href={link.href} className="py-1.5">
-                        {link.label}
+                      <NavigationMenuLink href={link?.href} className="py-1.5">
+                        {link?.label}
                       </NavigationMenuLink>
                     </NavigationMenuItem>
                   ))}

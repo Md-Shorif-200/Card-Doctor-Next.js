@@ -9,11 +9,11 @@
 }
 
 .primary_btn {
-     @apply  btn bg-[#FF3811] text-white capitalize border-none 
+     @apply   bg-[#FF3811] text-white capitalize border-none rounded-md btn 
 } 
 
 .secondary_btn {
-    @apply btn border border-[#FF3811] text-[#FF3811] capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all 
+    @apply  border border-[#FF3811] text-[#FF3811] rounded-md btn capitalize bg-white hover:bg-[#FF3811] hover:text-white transition-all 
 }
 
 .service_card{

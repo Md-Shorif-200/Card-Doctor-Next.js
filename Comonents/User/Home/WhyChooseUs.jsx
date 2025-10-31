@@ -4,7 +4,7 @@ import SectionTitle from "@/Comonents/SectionTitle";
 
 const icon_5 = "/assets/icons/check.svg";
 const icon_2 = "/assets/icons/deliveryt.svg";
-const icon_7 = "/assets/icons/Group 38729.svg";
+// const icon_7 = "/assets/icons/Group 38729.svg";
 const icon_1 = "/assets/icons/group.svg";
 const icon_3 = "/assets/icons/person.svg";
 const icon_6 = "/assets/icons/quote.svg";

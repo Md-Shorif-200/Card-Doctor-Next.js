@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import CommonBanner from "@/Comonents/CommonBanner";
 import Container from "@/Comonents/Container";
 

@@ -1,9 +1,9 @@
 import Container from "@/Comonents/Container";
 import Image from "next/image";
 
-const logo_1 = '/assets/ourInformation/Group 32.png'
-const logo_2 = '/assets/ourInformation/Group 34.png'
-const logo_3 = '/assets/ourInformation/Group 35.png'
+const logo_1 = '/assets/ourInformation/Group-32.png'
+const logo_2 = '/assets/ourInformation/Group-34.png'
+const logo_3 = '/assets/ourInformation/Group-35.png'
 
 
 const infoData = [
@@ -40,7 +40,7 @@ export default function OurInformation() {
             className="flex items-center space-x-4 flex-1 min-w-0"
           >
                     
-                     <Image src={item.logo} width={30} height={30}
+                     <Image src={item.logo} alt="Information Image" width={30} height={30}
                      ></Image>
 
             <div className="flex flex-col">

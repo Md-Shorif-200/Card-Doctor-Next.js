@@ -40,7 +40,7 @@ const CarDoctorCard = ({price,serviceId}) => {
         </p>
 
          <Link  href={`/bookings/${serviceId}`}>
-        <button  className="w-full  py-3 bg-red-600 text-white font-bold text-lg rounded-md transition duration-150 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+        <button  className="w-full  py-3 bg-red-600 text-white font-bold text-lg rounded-md transition duration-150 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 cursor-pointer">
           Book Now
         </button>
          </Link>

@@ -1,6 +1,5 @@
 import React from "react";
 import { dbCollection, dbConnect } from "@/lib/mongodb";
-import Image from "next/image";
 import Link from "next/link";
 import ServiceCard from "../Service/ServiceCard";
 import Container from "@/Comonents/Container";

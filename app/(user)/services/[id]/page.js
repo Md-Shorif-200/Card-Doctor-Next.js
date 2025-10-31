@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import CarDoctorCard from "@/Comonents/User/Service/ServiceDetails/CarDoctorCard";
 import CommonBanner from "@/Comonents/CommonBanner";
 import Container from "@/Comonents/Container";
@@ -10,7 +11,7 @@ import Service_Procoss_step from "@/Comonents/User/Service/ServiceDetails/Servic
 import Service_tabs from "@/Comonents/User/Service/ServiceDetails/Service_tabs";
 import Service_facility from "@/Comonents/User/Service/ServiceDetails/Service_facility";
 
-const service_Banner_img = "/assets/images/banner/4.jpg";
+const service_Banner_img = "/assets/images/banner/6.jpg";
 const service_Process_img = "/assets/images/banner/2.jpg";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;

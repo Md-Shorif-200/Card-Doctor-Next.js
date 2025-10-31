@@ -9,7 +9,7 @@ const productsData = [
   { id: 2, name: "Car Air Filter", price: "20.00", image: "/assets/images/products/2.png" },
   { id: 3, name: "Cools Led Light", price: "20.00", image: "/assets/images/products/3.png" },
   { id: 4, name: "Car Headlight", price: "20.00", image: "/assets/images/products/4.png" },
-  { id: 5, name: "Car Tires", price: "20.00", image: "/assets/images/products/5.png" },
+  { id: 5, name: "Car Tires", price: "20.00", image: "/assets/images/products/1.png" },
   { id: 6, name: "Car Battery", price: "20.00", image: "/assets/images/products/6.png" },
 ];
 

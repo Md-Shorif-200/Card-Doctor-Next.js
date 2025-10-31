@@ -3,7 +3,7 @@ import CommonBanner from "@/Comonents/CommonBanner";
 import EditBookinsButton from "../Bookings/EditBookinsButton";
 import DeleteBookings from "../Bookings/DeleteBookings";
 
-const bookingImg = "/assets/images/checkout/checkout.png";
+const bookingImg = "/assets/images/banner/1.jpg";
 
 export default function MyBookings({ data }) {
      console.log(data);
@@ -37,7 +37,7 @@ export default function MyBookings({ data }) {
                 <tbody>
                   {data?.map((item, index) => (
                     <tr
-                      key={item._id}
+                      key={item?._id}
                       className="hover:bg-gray-50 border-t border-gray-200"
                     >
                       <td className="text-gray-600">{index + 1}</td>
